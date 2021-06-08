@@ -3,12 +3,20 @@ import java.util.Scanner;
 
 public class MarsRoverMain {
     public static void main(String[] args){
+        System.out.println("Please enter the grid co-ordinates:");
         Scanner scanner = new Scanner(System.in);
         Grid grid = getGridCoordinates(scanner.nextLine());
+        System.out.println("Enter Instruction:");
         while(scanner.hasNext()) {
             String input = scanner.nextLine();
-            parseInput(input,grid);
+            if(input.equals("quit")){
+               break;
+            }else{
+                parseInput(input,grid);
+                System.out.println("Enter Instruction:");
+            }
         }
+        scanner.close();
     }
 
     public static void parseInput(String input,Grid grid){
